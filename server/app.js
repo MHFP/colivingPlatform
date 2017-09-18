@@ -12,7 +12,7 @@ var mongoose = require('mongoose');
 
 
 // *** mongoose *** //
-mongoose.connect('mongodb://localhost/passport-social-auth');
+mongoose.connect('mongodb://localhost/colivingPlatform');
 
 
 // *** routes *** //
