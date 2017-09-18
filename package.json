@@ -1,0 +1,33 @@
+{
+  "name": "passport-social-auth-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon ./server/bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MHFP/passport-social-auth-linkedin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MHFP/passport-social-auth-linkedin/issues"
+  },
+  "homepage": "https://github.com/MHFP/passport-social-auth-linkedin#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "favicon": "0.0.2",
+    "mongoose": "^4.11.11",
+    "morgan": "^1.8.2",
+    "passport": "^0.3.2",
+    "passport-linkedin": "^1.0.0",
+    "serve-favicon": "^2.4.4",
+    "swig": "^1.4.2"
+  }
+}
