@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
+var expressLayouts = require('express-ejs-layouts');
 var passport = require('passport');
 var session = require('express-session');
 var mongoose = require('mongoose');
@@ -16,9 +17,9 @@ mongoose.connect('mongodb://localhost/colivingPlatform');
 
 
 // *** routes *** //
-var routes = require('./routes/index.js');
-
-
+const index = require('./routes/index');
+const welcome = require('./routes/welcome');
+const myProfile = require('./routes/myProfile');
 
 // *** express instance *** //
 var app = express();
@@ -32,6 +33,7 @@ app.set('view engine', 'html');
 
 // *** static directory *** //
 app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'ejs');
 
 
 // *** config middleware *** //
@@ -50,8 +52,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // *** main routes *** //
-app.use('/', routes);
-
+app.use('/', index);
+app.use('/', welcome);
+app.use('/', myProfile);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

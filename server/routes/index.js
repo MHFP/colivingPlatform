@@ -1,22 +1,36 @@
 var express = require('express');
 var router = express.Router();
 var passportLinkedIn = require('../auth/linkedin');
+const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 router.get('/', function(req, res, next) {
+  console.log(req.user);
   res.render('index', { title: "Welcome to nomad's protale" });
 });
 
-router.get('/login', function(req, res, next) {
-  res.send('Go back and register!');
+router.get('/login', ensureLoggedOut(), (req, res) => {
+    res.render('welcome');
 });
 
-router.get('/auth/linkedin', passportLinkedIn.authenticate('linkedin', { scope: ['r_basicprofile', 'r_emailaddress', 'w_share', 'rw_company_admin'] }));
+router.get('/auth/linkedin', ensureLoggedOut(),
+  passportLinkedIn.authenticate('linkedin',
+  { scope: ['r_basicprofile', 'r_emailaddress', 'w_share', 'rw_company_admin'] }));
 
-router.get('/auth/linkedin/callback',
+router.get('/auth/linkedin/callback', ensureLoggedOut(),
   passportLinkedIn.authenticate('linkedin', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication
-    res.json(req.user);
+    // res.json(req.user);
+    res.render('welcome');
     });
+
+  // route for logging out
+  router.get('/logout', function(req, res) {
+      req.session.destroy(function(e){
+          console.log(req.user);
+          req.logout();
+          res.redirect('/');
+      });
+  });
 
 module.exports = router;
