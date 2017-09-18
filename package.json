@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MHFP/passport-social-auth-linkedin.git"
+    "url": "git+https://github.com/MHFP/colivingPlatform.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MHFP/passport-social-auth-linkedin/issues"
+    "url": "https://github.com/MHFP/colivingPlatform/issues"
   },
-  "homepage": "https://github.com/MHFP/passport-social-auth-linkedin#readme",
+  "homepage": "https://github.com/MHFP/colivingPlatform#readme",
   "dependencies": {
     "body-parser": "^1.18.1",
     "cookie-parser": "^1.4.3",
