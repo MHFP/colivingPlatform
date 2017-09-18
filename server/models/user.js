@@ -4,11 +4,16 @@ var Schema = mongoose.Schema;
 
 // create User Schema
 var User = new Schema({
-  pic: String,
+  linkedinID: String,
+  fullname: String,
+  firstname: String,
+  lastname: String,
   email: String,
-  profile: Object,
-  name: String,
-  someID: String
+  jobTitle: String,
+  industry: String,
+  headline: String,
+  summary: String,
+  pic: String
 });
 
 

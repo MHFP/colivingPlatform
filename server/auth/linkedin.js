@@ -15,16 +15,20 @@ passport.use(new LinkedInStrategy({
   // linkedin sends back the tokens and progile info
   function(token, tokenSecret, profile, done) {
     var searchQuery = {
-      name: profile.displayName
+      fullname: profile.displayName
     };
 
     var updates = {
+      linkedinID: profile.id,
+      fullname: profile.displayName,
+      firstname: profile._json.firstName,
+      lastname: profile._json.lastName,
       email: profile._json.emailAddress,
-      pic: profile._json.pictureUrls.values[0],
-      profile,
-      name: profile.displayName,
-      someID: profile.id,
-
+      jobTitle: profile._json.positions.values[0].title,
+      industry: profile._json.industry,
+      headline: profile._json.headline,
+      summary: profile._json.summary,
+      pic: profile._json.pictureUrls.values[0]
     };
 
     var options = {
