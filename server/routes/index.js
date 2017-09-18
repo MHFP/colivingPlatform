@@ -3,7 +3,7 @@ var router = express.Router();
 var passportLinkedIn = require('../auth/linkedin');
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Welcome' });
+  res.render('index', { title: "Welcome to nomad's protale" });
 });
 
 router.get('/login', function(req, res, next) {
