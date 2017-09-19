@@ -13,7 +13,14 @@ var User = new Schema({
   industry: String,
   headline: String,
   summary: String,
-  pic: String
+  pic: String,
+  //SOCIAL-ATTRIBUTES
+  partier: Number,
+  oraganized: Number,
+  athlete: Number,
+  social: Number,
+  geek: Number,
+  active: Number
 });
 
 

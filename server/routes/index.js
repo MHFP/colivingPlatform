@@ -5,10 +5,10 @@ const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 
 router.get('/', function(req, res, next) {
   console.log(req.user);
-  res.render('index', { title: "Welcome to nomad's protale" });
+  res.render('index', { title: "Welcome to nomad's portale" });
 });
 
-router.get('/login', ensureLoggedOut(), (req, res) => {
+router.get('/login', ensureLoggedIn('/'), (req, res) => {
     res.render('welcome');
 });
 
@@ -17,7 +17,7 @@ router.get('/auth/linkedin', ensureLoggedOut(),
   { scope: ['r_basicprofile', 'r_emailaddress', 'w_share', 'rw_company_admin'] }));
 
 router.get('/auth/linkedin/callback', ensureLoggedOut(),
-  passportLinkedIn.authenticate('linkedin', { failureRedirect: '/login' }),
+  passportLinkedIn.authenticate('linkedin', { failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication
     // res.json(req.user);
@@ -27,7 +27,7 @@ router.get('/auth/linkedin/callback', ensureLoggedOut(),
   // route for logging out
   router.get('/logout', function(req, res) {
       req.session.destroy(function(e){
-          console.log(req.user);
+          console.log("Here:", req.user);
           req.logout();
           res.redirect('/');
       });

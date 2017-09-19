@@ -32,7 +32,7 @@ app.set('view engine', 'html');
 
 
 // *** static directory *** //
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', __dirname + '/views');
 // app.set('view engine', 'ejs');
 
 
