@@ -6,7 +6,7 @@ const { ensureLoggedIn }     = require('connect-ensure-login');
 
 
 router.get('/welcome',
-  ensureLoggedIn("/login"),
+  ensureLoggedIn("/"),
   function(req, res) {
     res.render('welcome', { user: req.user });
   });

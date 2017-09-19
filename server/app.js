@@ -1,15 +1,14 @@
 // *** main dependencies *** //
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var swig = require('swig');
-var expressLayouts = require('express-ejs-layouts');
-var passport = require('passport');
-var session = require('express-session');
-var mongoose = require('mongoose');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const expressLayouts = require('express-ejs-layouts');
+const passport = require('passport');
+const session = require('express-session');
+const mongoose = require('mongoose');
 
 
 // *** mongoose *** //
@@ -26,22 +25,17 @@ var app = express();
 
 
 // *** view engine *** //
-var swig = new swig.Swig();
-app.engine('html', swig.renderFile);
-app.set('view engine', 'html');
-
-
-// *** static directory *** //
-app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
-
+app.set('view engine', 'ejs');
 
 // *** config middleware *** //
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../client/public')));
+app.use(express.static('public'));
+app.use(expressLayouts);
+app.set('layout', 'layouts/main-layout');
+app.set('views', __dirname + '/views');
 
 app.use(session({
   secret: 'keyboard cat',

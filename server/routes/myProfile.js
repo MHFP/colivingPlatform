@@ -5,10 +5,11 @@ const { ensureLoggedIn } = require('connect-ensure-login');
 
 
 router.get('/myProfile',
-  ensureLoggedIn("/login"),
+  ensureLoggedIn("/"),
   function(req, res) {
     res.render('myprofile', { user: req.user });
   });
+
 
 
 
