@@ -3,19 +3,16 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/colivingPlatform', {
   useMongoClient: true
 });
-const Place = require('../models/coliving');
+const Place = require('../models/place');
 
-const places = [{
+const listOfPlaces = [{
     "city": "Dahab",
     "country": "Egypt",
     "continent": "Africa",
     "name": "CoworkInn Dahab",
     "url": "https://www.coworkinn-dahab.com/",
     "imageURL": "https://image.jimcdn.com/app/cms/image/transf/dimension=568x10000:format=jpg/path/sc79f5fb5f5450daa/image/i6f4b934003853b9e/version/1465116560/image.jpg",
-    "geolocation": {
-      "lat": 123123.32,
-      "long": 123123123.12
-    },
+    "geolocation": { coordinates: [41.38506389999999, 2.1734034999999494] },
     "description": "Come and work in the Land of 1001 Nights and the Village of the True Nomads. Escape the cold and enjoy the team-spirit of creative Co-workers.",
     "price": 10,
     "rating": 4,
@@ -30,8 +27,8 @@ const places = [{
     "url": "https://www.sun-desk.com/",
     "imageURL": "https://s-ec.bstatic.com/images/hotel/max1024x768/923/92322064.jpg",
     "geolocation": {
-      "lat": 0,
-      "long": 0
+      "lat": 40.4167754,
+      "long": -3.7037901999999576
     },
     "description": "Work remotely and keep your productivity levels high, all while exploring beautiful Morocco. Join a community of like-minded people!",
     "price": 20,
@@ -47,8 +44,8 @@ const places = [{
     "url": "https://www.roam.co/places/tokyo",
     "imageURL": "https://www.roam.co/dist/roam-tokyo-coliving-bedroom-4afa5986e3ae74e66f743c930ac43753.jpg",
     "geolocation": {
-      "lat": 0,
-      "long": 0
+      "lat": 36.5270612,
+      "long": -6.288596200000029
     },
     "description": "Imperial Palace? Arts and shops at Omote-Sando? Work and after in Roppongi? Roam puts all of this and more within walking distance of your perfect home.",
     "price": 85,
@@ -64,8 +61,8 @@ const places = [{
     "url": "https://angkorhub.com/",
     "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdypWMgoNKFX48ik07yxWJrEvUrz__QWTUAb35m_wMX5nFylTb",
     "geolocation": {
-      "lat": 0,
-      "long": 0
+      "lat": 36.510071,
+      "long": -4.882447400000046
     },
     "description": "AngkorHUB is also a social innovation centre dedicated to sustainable growth and development in Cambodia.  We bring together ideas, entrepreneurs, mentors and impact investors to nurture creative communities",
     "price": 18,
@@ -364,7 +361,7 @@ const places = [{
   }
 ];
 
-Place.create(places, (err, docs) => {
+Place.create(listOfPlaces, (err, docs) => {
   if (err) {
     throw err;
   }

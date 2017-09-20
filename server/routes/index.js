@@ -21,9 +21,8 @@ router.get('/auth/linkedin/callback', ensureLoggedOut(),
   function(req, res) {
     // Successful authentication
     // res.json(req.user);
-    res.render('myProfile');
+    res.redirect('/myProfile');
     });
-
 
   // route for logging out
   router.get('/logout', function(req, res) {

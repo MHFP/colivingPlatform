@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "nodemon ./server/bin/www"
+    "start-dev": "nodemon ./server/bin/www",
+    "populate": "node ./server/bin/seeds.js"
   },
   "repository": {
     "type": "git",

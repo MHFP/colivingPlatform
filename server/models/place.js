@@ -10,7 +10,7 @@ const PlaceSchema = new Schema({
   name    : String,
   url: String,
   imageURL: String,
-//  geolocation: { lat: Number, long: Number },
+  geolocation: { type: { type: String, default: "Point" }, coordinates: [Number] },
   descripion: String,
   price: String,
   ratings: Number,
@@ -18,6 +18,8 @@ const PlaceSchema = new Schema({
   vetVisits: [Date]
 });
 
+PlaceSchema.index({ location: '2dsphere' });
+
 //module.exports  = mongoose.model('place', placeSchema);
-const Place = mongoose.model('placeCollectionModel', PlaceSchema);
+const Place = mongoose.model('places', PlaceSchema);
 module.exports = Place;
