@@ -12,7 +12,6 @@ router.get('/login', ensureLoggedIn('/'), (req, res) => {
     res.render('welcome');
 });
 
-
 router.get('/auth/linkedin', ensureLoggedOut(),
   passportLinkedIn.authenticate('linkedin',
   { scope: ['r_basicprofile', 'r_emailaddress', 'w_share', 'rw_company_admin'] }));
@@ -22,9 +21,9 @@ router.get('/auth/linkedin/callback', ensureLoggedOut(),
   function(req, res) {
     // Successful authentication
     // res.json(req.user);
-    res.render('welcome');
+    res.render('myProfile');
     });
-    
+
 
   // route for logging out
   router.get('/logout', function(req, res) {
