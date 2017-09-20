@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/www",
-    "start-dev": "nodemon ./server/bin/www",
-    "populate": "node ./server/bin/seeds.js"
+    "start-dev": "nodemon ./server/bin/www"
   },
   "repository": {
     "type": "git",
