@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./bin/www",
     "start-dev": "nodemon ./server/bin/www",
     "populate": "node ./server/bin/seeds.js"
   },
@@ -31,6 +32,5 @@
     "passport": "^0.3.2",
     "passport-linkedin": "^1.0.0",
     "serve-favicon": "^2.4.4",
-    "swig": "^1.4.2"
   }
 }
