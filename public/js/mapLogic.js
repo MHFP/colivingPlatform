@@ -8,15 +8,15 @@ function initialize() {
 
 
   function eqfeed_callback(places) {
-
-      var coords = places[0].geolocation.coordinates;
+    for (var i = 0; i < places.length; i++) {
+      var coords = places[i].geolocation.coordinates;
       var latLng = new google.maps.LatLng(coords[0], coords[1]);
       console.log(coords);
       var marker = new google.maps.Marker({
         position: latLng,
         map: map
       });
-
+    }
   }
 
   eqfeed_callback(window.places);
