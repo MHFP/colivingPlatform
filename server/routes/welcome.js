@@ -15,16 +15,6 @@ router.get('/welcome', (req, res, next) => {
       places: places,
       user: req.user
     });
-    console.log(places);
-
-    // places.get('/welcome', (req, res, next) => {
-    //   places.find({}).populate('creator', '').exec((err, places) => {
-    //     if (err) {
-    //       return next(err);
-    //     }
-    //     res.render('/welcome', {req, places});
-    //   });
-    // });
   });
 });
 

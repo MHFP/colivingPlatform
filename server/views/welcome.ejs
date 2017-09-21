@@ -9,5 +9,8 @@
   </div>
 
     <div id="map"></div>
-  <%= places[0].geolocation %>
-  <input id="xyz" type="text" value='<%= places[0].geolocation.coordinates %>'>
+
+
+<script type="text/javascript">
+  window.places = <%- JSON.stringify(places) %>;
+</script>

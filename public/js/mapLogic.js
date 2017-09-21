@@ -1,35 +1,43 @@
 function initialize() {
   var mapOptions = {
-    center: {lat: 42.75873, lng: -9.075063},
+    center: {lat: 41.385063, lng: 2.173403},
     zoom: 13,
   };
-  var location = document.getElementById('xyz').value;
-  console.log(location);
+
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-  var marker = new google.maps.Marker({
-           position: location,
-           map: map
-         });
-  var input =  document.getElementById('pac-input');
-  var autocomplete = new google.maps.places.Autocomplete(input);
 
-  // window.eqfeed_callback = function(places) {
-  //   for (var i = 0; i < places.length; i++) {
-  //     var coords = places[i].geolocation;
-  //     var latLng = new google.maps.LatLng(coords.lat, coords.long);
-  //     var marker = new google.maps.Marker({
-  //       position: latLng,
-  //       map: map
-  //     });
-  //   }
-  // };
+  function eqfeed_callback(places) {
+
+      var coords = places[0].geolocation.coordinates;
+      var latLng = new google.maps.LatLng(coords[0], coords[1]);
+      console.log(coords);
+      var marker = new google.maps.Marker({
+        position: latLng,
+        map: map
+      });
+
+  }
+
+  eqfeed_callback(window.places);
 
 }
 
-
-
 google.maps.event.addDomListener(window, 'load', initialize);
+
+
+// var location = document.getElementById('xyz').value;
+// console.log(location);
+
+// var input =  document.getElementById('pac-input');
+// var autocomplete = new google.maps.places.Autocomplete(input);
+
+// var marker = new google.maps.Marker({
+//          position: location,
+//          map: map
+//        });
+
+
 
 
 
