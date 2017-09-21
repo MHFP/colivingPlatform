@@ -1,23 +1,52 @@
+var markers;
+var foo = "test";
+
 function initialize() {
   var mapOptions = {
     center: {lat: 41.385063, lng: 2.173403},
-    zoom: 13,
+    zoom: 4,
   };
 
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
 
   function eqfeed_callback(places) {
+    markers = [];
+
+   var infowindow = new google.maps.InfoWindow();
     for (var i = 0; i < places.length; i++) {
+
+      var label = places[i].name;
       var coords = places[i].geolocation.coordinates;
       var latLng = new google.maps.LatLng(coords[0], coords[1]);
-      console.log(coords);
       var marker = new google.maps.Marker({
         position: latLng,
-        map: map
+        map: map,
+        title: label
       });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(places[i].name);
+          infowindow.open(map, marker);
+        };
+      })(marker, i));
+
+
+      markers.push(marker);
     }
+    console.log(markers);
   }
+
+
+  // for (i = 0; i < locations.length; i++) {
+  //   marker = new google.maps.Marker({
+  //     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+  //     map: map
+  //   });
+
+
+
 
   eqfeed_callback(window.places);
 
