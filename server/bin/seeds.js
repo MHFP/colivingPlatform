@@ -5,6 +5,7 @@ mongoose.connect('mongodb://localhost/colivingPlatform', {
 });
 const Place = require('../models/place');
 
+
 const listOfPlaces = [{
     "city": "Dahab",
     "country": "Egypt",
