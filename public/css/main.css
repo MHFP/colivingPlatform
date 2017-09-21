@@ -99,3 +99,9 @@ input[type=range]{
   width: 100%;
   justify-content: space-around;
 }
+
+#logo{
+  width: 140px;
+  height: 40px;
+  margin-right: 50px;
+}
