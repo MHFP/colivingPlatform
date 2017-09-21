@@ -10,9 +10,10 @@ const passport = require('passport');
 const session = require('express-session');
 const mongoose = require('mongoose');
 
+require("dotenv").config();
 
 // *** mongoose *** //
-mongoose.connect('mongodb://localhost/colivingPlatform');
+mongoose.connect(process.env.MONGODB_URI);
 
 
 // *** routes *** //
