@@ -10,6 +10,42 @@
 
     <div id="map"></div>
 
-    <script type="text/javascript">
-      window.places = <%- JSON.stringify(places) %>;
-    </script>
+  <section class="filter-container">
+    <div id="filter-box">
+      <div class="first-filter">
+        <p>Select a continent!</p>
+        <select>
+          <option value="">Africa</option>
+          <option value="">Europe</option>
+          <option value="">Asia</option>
+          <option value="">North America</option>
+          <option value="">South America</option>
+          <option value="">Australia</option>
+        </select>
+      </div>
+      <div class="second-filter">
+        <p>Select your amenities!</p>
+        <select>
+          <option value="">Wifi</option>
+          <option value="">Private Bedroom</option>
+          <option value="">Activites</option>
+          <option value="">Office only</option>
+        </select>
+      </div>
+    </div>
+    <section class="results">
+      <div class="first-media">
+
+      </div>
+      <div class="second-media">
+
+      </div>
+      <div class="third-media">
+
+      </div>
+    </section>
+  </section>
+
+
+
+<script type="text/javascript">window.places = <%- JSON.stringify(places) %>;</script>
