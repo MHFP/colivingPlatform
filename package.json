@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www",
-    "start-dev": "nodemon ./server/bin/www",
-    "populate": "node ./server/bin/seeds.js"
+    "start": "node ./server/bin/www",
+    "start-dev": "nodemon ./server/bin/www"
   },
   "repository": {
     "type": "git",
@@ -31,6 +30,6 @@
     "morgan": "^1.8.2",
     "passport": "^0.3.2",
     "passport-linkedin": "^1.0.0",
-    "serve-favicon": "^2.4.4",
+    "serve-favicon": "^2.4.4" 
   }
 }
