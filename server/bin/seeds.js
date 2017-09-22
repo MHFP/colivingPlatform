@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 const mongoose = require('mongoose');
-mongoose.connect('process.env.MONGODB_URI');
+mongoose.connect(process.env.MONGODB_URI);
 const Place = require('../models/place');
 
 const listOfPlaces = [{

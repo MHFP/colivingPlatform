@@ -1,3 +1,6 @@
+require("dotenv").config();
+
+
 // *** main dependencies *** //
 const express = require('express');
 const path = require('path');
@@ -10,7 +13,6 @@ const passport = require('passport');
 const session = require('express-session');
 const mongoose = require('mongoose');
 
-require("dotenv").config();
 
 // *** mongoose *** //
 mongoose.connect(process.env.MONGODB_URI);
