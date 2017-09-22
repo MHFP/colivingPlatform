@@ -1,11 +1,7 @@
 /*jshint esversion: 6 */
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/colivingPlatform', {
-  useMongoClient: true
-});
-
+mongoose.connect('process.env.MONGODB_URI');
 const Place = require('../models/place');
-
 
 const listOfPlaces = [{
     "city": "Dahab",
@@ -296,6 +292,6 @@ Place.create(listOfPlaces, (err, docs) => {
   docs.forEach((Place) => {
     console.log(Place.name);
   });
-});
+  mongoose.connection.close();
 
-mongoose.connection.close();
+});
