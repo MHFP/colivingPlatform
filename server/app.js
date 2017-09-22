@@ -1,3 +1,6 @@
+require("dotenv").config();
+
+
 // *** main dependencies *** //
 const express = require('express');
 const path = require('path');
@@ -12,7 +15,7 @@ const mongoose = require('mongoose');
 
 
 // *** mongoose *** //
-mongoose.connect('mongodb://localhost/colivingPlatform');
+mongoose.connect(process.env.MONGODB_URI);
 
 
 // *** routes *** //

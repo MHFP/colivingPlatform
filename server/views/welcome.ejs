@@ -1,13 +1,54 @@
 
     <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-3">Hello <%= user.firstname %>!</h1>
       <h1 class="display-3">Welcome to Nomad's Portal</h1>
       <p class="lead">Have fun exploring the world of digital nomads!</p>
     </div>
     <button type="button" class="btn btn-primary float-right"><a class="logout" href="/logout">Logout</a></button>
   </div>
-
+  <div class="geo-container">
+    <div class="filter">
+      <section class="filter-container">
+        <div id="filter-box">
+          <div class="first-filter">
+            <p>Select a continent!</p>
+            <select id="continent">
+              <option value="Africa">Africa</option>
+              <option value="Europe">Europe</option>
+              <option value="Asia">Asia</option>
+              <option value="North America">North America</option>
+              <option value="South America">South America</option>
+              <option value="Australia">Australia</option>
+            </select>
+          </div>
+          <div class="second-filter">
+            <p>Select your amenities!</p>
+            <select>
+              <option value="">Wifi</option>
+              <option value="">Private Bedroom</option>
+              <option value="">Activites</option>
+              <option value="">Office only</option>
+            </select>
+          </div>
+        </div>
+      </section>
+    </div>
     <div id="map"></div>
-  <%= places[0].geolocation %>
-  <input id="xyz" type="text" value='<%= places[0].geolocation.coordinates %>'>
+  </div>
+
+
+  <section class="results">
+    <% for (i=0; i < places.length; i++) { %>
+      <div class="media">
+        <h4><%= places[i].name %></h4>
+        <div class="over">
+          <img class="placesPic" src="<%= places[i].imageURL %>" alt="">
+        </div>
+
+          <span class="hidden"><%= places[i].continent %></span>
+      </div>
+    <% } %>
+  </section>
+
+
+<script type="text/javascript">window.places = <%- JSON.stringify(places) %>;</script>

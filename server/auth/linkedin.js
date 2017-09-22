@@ -2,13 +2,16 @@ var passport = require('passport');
 var LinkedInStrategy = require('passport-linkedin');
 
 var User = require('../models/user');
-var config = require('../_config');
 var init = require('./init');
 
+var configLinkedinClientID = process.env.CONFIG_LINKEDIN_CLIENT_ID;
+var configLinkedinClientSecret = process.env.CONFIG_LINKEDIN_CLIENT_SECRET;
+var configLinkedinCallbackURL = process.env.CONFIG_LINKEDIN_CALLBACK_URL;
+
 passport.use('linkedin', new LinkedInStrategy({
-    consumerKey: config.linkedin.clientID,
-    consumerSecret: config.linkedin.clientSecret,
-    callbackURL: config.linkedin.callbackURL,
+    consumerKey: configLinkedinClientID,
+    consumerSecret: configLinkedinClientSecret,
+    callbackURL: configLinkedinCallbackURL,
     scope: [ 'r_basicprofile', 'r_emailaddress', 'w_share', 'rw_company_admin'],
     profileFields: ['id', 'first-name', 'last-name', 'email-address','public-profile-url', 'picture-urls::(original)', 'headline', 'industry', 'positions', 'summary', 'specialties']
   },
