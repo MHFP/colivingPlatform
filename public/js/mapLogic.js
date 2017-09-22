@@ -26,6 +26,7 @@ function initialize() {
       var url = places[i].url;
       var coords = places[i].geolocation.coordinates;
       var latLng = new google.maps.LatLng(coords[0], coords[1]);
+
       var marker = new google.maps.Marker({
         map: map,
         draggable: true,
@@ -33,8 +34,11 @@ function initialize() {
         position: latLng,
         title: label,
         url: url
-
       });
+
+      marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
 
       google.maps.event.addListener(marker, 'click', function() {
           console.log(this.url);
@@ -42,27 +46,17 @@ function initialize() {
           infowindow.open(map, this);
       });
 
+
       markers.push(marker);
+
     }
     console.log(markers);
   }
 
   eqfeed_callback(window.places);
 
-marker.addListener('click', toggleBounce);
-marker.addListener('click', function() {
-    infowindow.open(map, marker);
-  });
-
 }
 
-function toggleBounce() {
-  if (marker.getAnimation() !== null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-}
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
