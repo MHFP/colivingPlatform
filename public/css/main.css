@@ -64,6 +64,15 @@ input[type=range]{
   height: 300px;
 }
 
+.geo-container{
+  display: flex;
+  background-color: lightgrey;
+}
+
+.filter{
+  width: 200px;
+}
+
 .filter-container{
   margin-top: 50px;
   display: flex;
@@ -74,7 +83,7 @@ input[type=range]{
 #filter-box{
   display: flex;
   height: 200px;
-  width: 20%;
+  width: 100%;
   background-color: lightgrey;
   display: flex;
   flex-flow: column;
@@ -96,12 +105,50 @@ input[type=range]{
 
 .results{
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: space-around;
+
 }
 
 #logo{
   width: 140px;
   height: 40px;
   margin-right: 50px;
+}
+
+.hidden{
+  display: none;
+}
+
+.media{
+  display: flex;
+  flex-flow: column;
+  width: 250px;
+  height: 200px;
+  margin: 10px;
+  background-color: lightgrey;
+
+  align-content: center;
+  justify-content: center;
+  overflow: hidden;
+  color: darkgrey;
+}
+
+.media>h4{
+  margin: 12px auto;
+  font-size: 20px;
+}
+
+.over{
+  width:200px;
+  height:150px;
+}
+
+.placesPic{
+  display: flex;
+  width: 150px;
+  max-height: 150px;
+  margin: 0 auto;
+  zoom: 200%;
 }

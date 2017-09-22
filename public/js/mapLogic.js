@@ -23,6 +23,7 @@ function initialize() {
    var infowindow = new google.maps.InfoWindow();
     for (var i = 0; i < places.length; i++) {
       var label = places[i].name;
+      var url = places[i].url;
       var coords = places[i].geolocation.coordinates;
       var latLng = new google.maps.LatLng(coords[0], coords[1]);
       var marker = new google.maps.Marker({
@@ -30,15 +31,16 @@ function initialize() {
         draggable: true,
         animation: google.maps.Animation.DROP,
         position: latLng,
-        title: label
+        title: label,
+        url: url
+
       });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(places[i].name);
-          infowindow.open(map, marker);
-        };
-      })(marker, i));
+      google.maps.event.addListener(marker, 'click', function() {
+          console.log(this.url);
+          infowindow.setContent(`<p><a href="${this.url}" target="_blank">${this.title}</a></p>`);
+          infowindow.open(map, this);
+      });
 
       markers.push(marker);
     }

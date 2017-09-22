@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: "Welcome to nomad's portale" });
 });
 
-router.get('/login', ensureLoggedIn('/'), (req, res) => {
+router.get('/login', /*ensureLoggedIn('/'),*/ (req, res) => {
     res.render('welcome');
 });
 

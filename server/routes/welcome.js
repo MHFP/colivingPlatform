@@ -16,6 +16,10 @@ router.get('/welcome', (req, res, next) => {
       user: req.user
     });
   });
+
+  // var continent = document.getElementById('continent');
+  // console.log(continent);
+
 });
 
 
