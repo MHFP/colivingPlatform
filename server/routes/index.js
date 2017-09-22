@@ -25,12 +25,12 @@ router.get('/auth/linkedin/callback', ensureLoggedOut(),
     });
 
   // route for logging out
-  router.get('/logout', function(req, res) {
-      req.session.destroy(function(e){
-          console.log("Here:", req.user);
-          req.logout();
-          res.redirect('/');
-      });
-  });
+router.get('/logout', function(req, res) {
+    req.session.destroy(function(e){
+        console.log("Here:", req.user);
+        req.logout();
+        res.redirect('/');
+    });
+});
 
 module.exports = router;

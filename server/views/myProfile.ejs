@@ -1,3 +1,30 @@
-    <div class="main container-fluid">
-      <h1>Welcome to your personal page</h1>
+<div class="my-profile-main">
+  <div class="greeting">
+    <h1>Hola <%= user.firstname %>!</h1>
+    <p>Occupation: Vacation <br>We will help you find the best place and the coolest people.<br> Just provide a bit of information about your personality and you will find likeminded travellers.</p>
+    <div class="profile-pic"><img src="<%= user.pic %>" alt=""></div>
+  </div>
+
+  <form class="character" action="/myProfile" method="post">
+    <div class="character-option">
+      <label for="partier">Partier</label>
+      <input id="partier" type="range" min="0" max="5"><br>
     </div>
+    <div class="character-option">
+      <label for="organized">Organized</label>
+      <input id="organized" type="range" min="0" max="5"><br>
+    </div>
+    <div class="character-option">
+      <label for="athlete">Athlete</label>
+      <input id="athlete" type="range" min="0" max="5"><br>
+    </div>
+    <div class="character-option">
+      <label for="social">Social</label>
+      <input id="social" type="range" min="0" max="5"><br>
+    </div>
+    <div class="character-option">
+      <label for="active">Active</label>
+      <input id="active" type="range" min="0" max="5">
+    </div>
+  </form>
+</div>
